@@ -1,3 +1,0 @@
-2018/06/10 17:03:19 [error] 5#5: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 192.168.1.105, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "192.168.1.104", referrer: "http://192.168.1.104/"
-2018/06/11 03:19:01 [error] 5#5: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 192.168.2.110, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "192.168.2.183", referrer: "http://192.168.2.183/"
-2018/06/11 09:01:53 [error] 5#5: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 192.168.42.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "192.168.42.128", referrer: "http://192.168.42.128/"
