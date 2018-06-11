@@ -10,6 +10,9 @@ services :
       - ./mysql/data:/var/lib/mysql
       - ./mysql/logs:/var/log/mysql
     environment : 
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=123456
       - MYSQL_ROOT_PASSWORD=123456
     container_name : mysql
     restart : always
@@ -38,4 +41,14 @@ services :
     container_name : nginx
     links : 
       - php
+    restart : always
+  redis : 
+    build :
+      context : ./redis
+      dockerfile : Dockerfile
+    ports :
+      - "6379:6379"
+    volumes :
+      - ./redis/data:/data
+    container_name : redis
     restart : always
