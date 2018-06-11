@@ -1,4 +1,5 @@
 .idea
 www
 mysql/data
+mysql/logs
 nginx/logs

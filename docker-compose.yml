@@ -8,6 +8,7 @@ services :
       - "3306:3306"
     volumes :
       - ./mysql/data:/var/lib/mysql
+      - ./mysql/logs:/var/log/mysql
     environment : 
       - MYSQL_ROOT_PASSWORD=123456
     container_name : mysql
