@@ -4,7 +4,7 @@ MAINTAINER caohui <772071248@qq.com>
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
-COPY config/default.conf /etc/nginx/conf.d/default.conf
+COPY config/conf.d/* /etc/nginx/conf.d/
 
 EXPOSE 80
 
