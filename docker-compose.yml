@@ -1,4 +1,4 @@
-version : "2"
+version : "3"
 services :
   mysql : 
     build : 
@@ -16,6 +16,8 @@ services :
       - MYSQL_ROOT_PASSWORD=123456
     container_name : mysql
     restart : always
+    networks: 
+      - lnmp
   php :
     build : 
       context : ./php
@@ -28,6 +30,8 @@ services :
     links : 
       - mysql
     restart : always
+    networks: 
+      - lnmp
   nginx :
     build : 
       context : ./nginx
@@ -35,6 +39,7 @@ services :
     ports : 
       - "80:80"
       - "443:443"
+      - "3002:3002"
     volumes :
       - ./www:/usr/share/nginx/html/
       - ./nginx/logs:/var/log/nginx/
@@ -42,6 +47,8 @@ services :
     links : 
       - php
     restart : always
+    networks: 
+      - lnmp
   redis : 
     build :
       context : ./redis
@@ -52,3 +59,8 @@ services :
       - ./redis/data:/data
     container_name : redis
     restart : always
+    networks: 
+      - lnmp
+networks :
+  lnmp : 
+    driver : bridge
