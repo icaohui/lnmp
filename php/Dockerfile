@@ -2,8 +2,6 @@ FROM php:7.2-fpm
 
 MAINTAINER caohui <772071248@qq.com>
 
-RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-
 RUN apt-get update \
  && apt-get install -y zlib1g-dev libjpeg-dev libpng-dev libmcrypt-dev
 
