@@ -13,7 +13,11 @@ RUN pecl install mcrypt-1.0.0 \
  && docker-php-ext-install bcmath \ 
  && pecl install redis
 
-COPY config/php.ini /usr/local/etc/php/conf.d/php.ini
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
+COPY config/redis.ini /usr/local/etc/php/conf.d/redis.ini
+
+COPY config/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 EXPOSE 9000
 CMD ["php-fpm"]

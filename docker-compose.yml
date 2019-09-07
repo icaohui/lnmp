@@ -7,8 +7,8 @@ services :
     ports :
       - "3306:3306"
     volumes :
-      - ./mysql/data:/var/lib/mysql
-      - ./mysql/logs:/var/log/mysql
+      - ./mysql/data:/var/lib/mysql:cached
+      - ./mysql/logs:/var/log/mysql:cached
     environment : 
       - MYSQL_DATABASE=test
       - MYSQL_USER=test
@@ -25,7 +25,7 @@ services :
     ports :
       - "9000:9000"
     volumes :
-      - ./www:/usr/share/nginx/html/
+      - ./www:/usr/share/nginx/html:cached
     container_name : php
     links : 
       - mysql
@@ -41,8 +41,8 @@ services :
       - "443:443"
       - "3002:3002"
     volumes :
-      - ./www:/usr/share/nginx/html/
-      - ./nginx/logs:/var/log/nginx/
+      - ./www:/usr/share/nginx/html:cached
+      - ./nginx/logs:/var/log/nginx:cached
     container_name : nginx
     links : 
       - php
@@ -56,7 +56,7 @@ services :
     ports :
       - "6379:6379"
     volumes :
-      - ./redis/data:/data
+      - ./redis/data:/data:cached
     container_name : redis
     restart : always
     networks: 
